@@ -4,16 +4,28 @@ const list = document.getElementById('todo-list');
 const footer = document.getElementById('footer');
 const itemsLeft = document.getElementById('items-left');
 const clearBtn = document.getElementById('clear-btn');
+const emptyState = document.getElementById('empty-state');
+const filterBtns = document.querySelectorAll('.filter-btn');
 
 let todos = JSON.parse(localStorage.getItem('todos') || '[]');
+let filter = 'all';
 
 function save() {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function getVisible() {
+  if (filter === 'active') return todos.filter(t => !t.done);
+  if (filter === 'completed') return todos.filter(t => t.done);
+  return todos;
+}
+
 function render() {
   list.innerHTML = '';
-  todos.forEach((todo, i) => {
+  const visible = getVisible();
+
+  visible.forEach((todo) => {
+    const i = todos.indexOf(todo);
     const li = document.createElement('li');
     li.className = 'todo-item' + (todo.done ? ' done' : '');
 
@@ -37,18 +49,20 @@ function render() {
   });
 
   const remaining = todos.filter(t => !t.done).length;
-  if (todos.length > 0) {
-    footer.style.display = 'flex';
+  const hasAny = todos.length > 0;
+
+  footer.style.display = hasAny ? 'flex' : 'none';
+  emptyState.style.display = visible.length === 0 ? 'block' : 'none';
+
+  if (hasAny) {
     itemsLeft.textContent = `${remaining} item${remaining !== 1 ? 's' : ''} left`;
-  } else {
-    footer.style.display = 'none';
   }
 }
 
 function addTodo() {
   const text = input.value.trim();
   if (!text) return;
-  todos.push({ text, done: false });
+  todos.unshift({ text, done: false });
   input.value = '';
   save();
   render();
@@ -68,10 +82,20 @@ function remove(i) {
 
 addBtn.addEventListener('click', addTodo);
 input.addEventListener('keydown', e => { if (e.key === 'Enter') addTodo(); });
+
 clearBtn.addEventListener('click', () => {
   todos = todos.filter(t => !t.done);
   save();
   render();
+});
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filter = btn.dataset.filter;
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
 });
 
 render();
