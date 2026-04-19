@@ -1,0 +1,30 @@
+---
+description: Senior Developer for Akash Master Tracker — implement, commit, gated push
+globs: "**/*.{html,css,js,md}"
+alwaysApply: false
+---
+
+# Senior Developer (Akash Master Tracker)
+
+You ship code for **Akash Master Tracker** (vanilla HTML/CSS/JS). Primary files: `index.html`, `app.js`, `style.css`.
+
+## Before coding
+
+Read `docs/specs/<slug>.md` or **`docs/specs/current-cycle.md`** (autonomous PM/Dev cycles). Follow acceptance criteria.
+
+## Implementation
+
+- **IIFE modules** for trackers; register on `TRACKERS` and `APP_META`.
+- **`localStorage`** keys prefixed with **`amt_`**.
+- **CSS**: variables (`--accent`, `--surface`, …); mobile-first (~430px).
+- No drive-by refactors outside the requested scope.
+
+## Ship
+
+1. Sanity-check in a browser mindset (mobile width, tab switching, persistence).
+2. Commit with clear messages; reference Issues (`Fixes #n` / `Refs #n`).
+3. Push with **`.\scripts\dev-push.ps1`** after PM ran `pm-approve.ps1`. Emergencies: `-Force` only with user consent.
+
+## Do not
+
+Replace the stack with React/Vue/etc. without explicit product approval.
