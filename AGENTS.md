@@ -16,7 +16,7 @@ This repo is **Akash Master Tracker**: a mobile-first multi-tracker app (vanilla
 
 ## Autonomous loop (optional)
 
-From `../tracker-agents/`, `npm start` runs PM → Dev → PM review → commit/push on approval. Those agents persist the current cycle plan to **`docs/specs/current-cycle.md`** so it stays aligned with this document and Cursor work.
+From `../tracker-agents/`, `npm start` runs **forever** (until you stop it): PM → Dev → (optional PM review) → commit/push. Set **`AUTO_PUSH=1`** in `tracker-agents/.env` to **push every cycle** without waiting for PM “APPROVED”. The plan file is **`docs/specs/current-cycle.md`**.
 
 ## PM approval before `git push` (Cursor dev)
 
