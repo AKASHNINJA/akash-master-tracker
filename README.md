@@ -73,7 +73,7 @@ npx serve .
 
 - **`AGENTS.md`** — PM + Senior Developer workflow, gated push, link to autonomous agents.
 - **`.cursor/skills/`** — start with **`main-project-developers`**; use **`pm-agent`** / **`senior-developer`** for role-specific chats.
-- **Optional autonomous loop**: sibling folder **`../tracker-agents/`** (`npm start`) runs PM → Dev → review → push; it writes **`docs/specs/current-cycle.md`** each cycle so Cursor and the API agents stay aligned.
+- **Optional autonomous loop**: sibling folder **`../tracker-agents/`** (`npm start`) runs PM → Dev → review → push via **Gemini**; it writes **`docs/specs/current-cycle.md`** each cycle so Cursor and the API agents stay aligned.
 
 ## License
 

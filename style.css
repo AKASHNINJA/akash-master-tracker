@@ -34,6 +34,25 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+}
+
+/* ─── DESKTOP / TABLET RESPONSIVE ─── */
+@media (min-width: 500px) {
+  body {
+    background: #07070a;
+    align-items: center;
+    padding: 20px 0;
+  }
+  .app {
+    height: calc(100vh - 40px);
+    max-height: 900px;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .modal-overlay { border-radius: 28px; overflow: hidden; }
 }
 
 /* ─── HEADER ─── */
@@ -354,9 +373,9 @@ html, body {
 
 /* ─── FAB ─── */
 .fab {
-  position: fixed;
+  position: absolute;
   bottom: calc(var(--nav-h) + 14px);
-  right: max(18px, calc(50vw - 215px + 18px));
+  right: 18px;
   width: 52px; height: 52px; border-radius: 50%;
   background: linear-gradient(135deg, var(--accent) 0%, #5b4fe0 100%);
   color: #fff; font-size: 1.7rem; border: none; cursor: pointer;
@@ -390,7 +409,7 @@ html, body {
 
 /* ─── MODALS ─── */
 .modal-overlay {
-  position: fixed; inset: 0;
+  position: absolute; inset: 0;
   background: rgba(0,0,0,0.65);
   backdrop-filter: blur(6px);
   display: flex; align-items: flex-end; justify-content: center;

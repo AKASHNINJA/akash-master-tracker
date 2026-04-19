@@ -25,7 +25,7 @@ description: >-
 
 ## Autonomous loop
 
-Sibling repo **`../tracker-agents/`** runs Anthropic API agents that write **`docs/specs/current-cycle.md`**. If that file exists and is recent, treat it as the active plan unless superseded by another spec.
+Sibling repo **`../tracker-agents/`** runs **Google Gemini** agents (`npm start`) that write **`docs/specs/current-cycle.md`**. If that file exists and is recent, treat it as the active plan unless superseded by another spec.
 
 ## Gated push
 

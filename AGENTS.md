@@ -1,6 +1,6 @@
 # Akash Master Tracker — PM + Senior Developer agents
 
-This repo is **Akash Master Tracker**: a mobile-first multi-tracker app (vanilla HTML/CSS/JS). Work is driven by two Cursor agent roles plus an optional **autonomous** loop in the sibling folder `../tracker-agents/` (Node + Anthropic API).
+This repo is **Akash Master Tracker**: a mobile-first multi-tracker app (vanilla HTML/CSS/JS). Work is driven by two Cursor agent roles plus an optional **autonomous** loop in the sibling folder `../tracker-agents/` (Node + **Google Gemini API**).
 
 ## Roles
 
