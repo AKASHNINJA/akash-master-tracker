@@ -26,7 +26,7 @@ if (-not (Test-Path (Join-Path $root ".git"))) {
 
 $status = git status --porcelain
 if ($status) {
-    Write-Host "Uncommitted changes — commit or stash before push."
+    Write-Host "Uncommitted changes - commit or stash before push."
     git status -sb
     exit 1
 }
